@@ -30,5 +30,14 @@ BlinkyDancer.prototype.step = function(){
   this.$node.toggle();
 }
 
+BlinkyDancer.prototype.lineup = function(left) {
+	this.$node.removeAttr('style');
+	var center = {
+		top: '50%',
+		left: left + '%'
+	};
+	this.$node.css(center);
+}
+
 
 

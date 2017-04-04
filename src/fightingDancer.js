@@ -9,3 +9,11 @@ FightingDancer.prototype.step = function(){
   Dancer.prototype.step.call(this);
   this.$node.toggle();
 }
+FightingDancer.prototype.lineup = function(left) {
+	this.$node.removeAttr('style');
+	var center = {
+		top: '50%',
+		left: left + '%'
+	};
+	this.$node.css(center);
+}
