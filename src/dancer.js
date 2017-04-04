@@ -32,14 +32,18 @@
 //   return dancer;
 // };
 
-var Dancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+var Dancer = function(top, left, timeBetweenSteps, className) {
+  console.log(timeBetweenSteps);
+  this.$node = $('<span class="' + className + '"></span>'); 
   this.timeBetweenSteps = timeBetweenSteps;
+  this.setPosition(top, left);
   this.step();
+
 };
 
 Dancer.prototype.step = function() {
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
+
 };
 
 Dancer.prototype.setPosition = function(top, left) {
