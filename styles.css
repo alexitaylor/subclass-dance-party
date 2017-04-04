@@ -2,7 +2,7 @@ body,
 html {
     height: 100%;
     font-family: 'Roboto', sans-serif;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .background-image {
@@ -34,12 +34,18 @@ a:active {
 
 a:hover {
     color: #2196f3;
-    font-size: 1.1em;
     border-bottom: 3px solid #2196f3;
 }
 
+.BlinkyDancer: hover{
+    border: 5px solid white;
+}
+
 .title,
-.addDancerButton {
+.addDancerButton,
+.lineup,
+.reset,
+.couple {
     padding: 5px 12px;
     float: right;
 }

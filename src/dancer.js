@@ -38,6 +38,9 @@ var Dancer = function(top, left, timeBetweenSteps, className, icon, animation) {
   this.timeBetweenSteps = timeBetweenSteps;
   this.setPosition(top, left);
   this.step();
+  this.top = top;
+  this.left = left;
+  this.side = null;
 
 };
 
@@ -48,9 +51,11 @@ Dancer.prototype.step = function() {
 
 Dancer.prototype.setPosition = function(top, left) {
   var styleSettings = {
-      top: top,
-      left: left
+      top: top + '%',
+      left: left + '%'
     };
     this.$node.css(styleSettings);
 };
+
+
 
