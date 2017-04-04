@@ -32,9 +32,9 @@
 //   return dancer;
 // };
 
-var Dancer = function(top, left, timeBetweenSteps, className) {
-  console.log(timeBetweenSteps);
-  this.$node = $('<span class="' + className + '"></span>'); 
+var Dancer = function(top, left, timeBetweenSteps, className, icon, animation) {
+
+  this.$node = $('<span class="' + className + '"><i class="fa ' + icon + ' fa-3x animated infinite ' + animation + '" aria-hidden="true"></i></span>');
   this.timeBetweenSteps = timeBetweenSteps;
   this.setPosition(top, left);
   this.step();
@@ -51,6 +51,6 @@ Dancer.prototype.setPosition = function(top, left) {
       top: top,
       left: left
     };
-    this.$node.css(styleSettings);  
+    this.$node.css(styleSettings);
 };
 

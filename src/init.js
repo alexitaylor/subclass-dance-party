@@ -1,6 +1,10 @@
+//var _ = require('lodash');
+
 $(document).ready(function() {
   window.dancers = [];
-
+  var classIcons = {BlinkyDancer: 'fa-snapchat-ghost', PopDancer: 'fa-github-alt', FightingDancer: 'fa-linux' };
+  var classIconsArray = ['fa-snapchat-ghost', 'fa-bug', 'fa-github-alt', 'fa-linux', 'fa-android', 'fa-reddit-alien', 'fa-optin-monster', 'fa-slack', 'fa-gitlab', 'fa-pied-piper-alt', 'fa-drupal'];
+  var animations = ['pulse', 'bounce', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'jello', 'lightSpeedOut', 'slideOutUp', 'zoomInDown', 'zoomOutUp', 'bounceOutDown'];
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -20,12 +24,17 @@ $(document).ready(function() {
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
+    var rand = _.random(classIconsArray.length - 1);
+    var randAnimation = _.random(animations.length - 1);
+    console.log(rand);
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000, 
-      dancerMakerFunctionName
+      Math.random() * 5000,
+      dancerMakerFunctionName,
+      classIconsArray[rand],
+      animations[randAnimation]
     );
     $('body').append(dancer.$node);
   });
