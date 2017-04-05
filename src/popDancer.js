@@ -38,14 +38,12 @@ PopDancer.prototype.pytha = function(top, left) {
 }
 
 PopDancer.prototype.couple = function(top, left){
-	console.log(left);
-	console.log(this.left);
 	this.left = left + 5;
 	this.top = top;
 	this.$node.removeAttr('style');
 	var couple = {
 		top: top + '%',
-		left: left + 5 +  '%'
+		left: left +  '%'
 	};
 	this.$node.css(couple);
 }

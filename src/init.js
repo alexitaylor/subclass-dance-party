@@ -46,12 +46,11 @@ $(document).ready(function() {
         var uniquePercentage = fractionPercentage * i;
         subClassesNodes[i].lineup(uniquePercentage, '50%');
       }
-
   });
 
     $('.reset').on('click', function() {
       for (var i = 0; i < subClassesNodes.length; i++) {
-        subClassesNodes[i].reset(100 * Math.random(), 100 * Math.random());
+        subClassesNodes[i].reset(90 * Math.random(), 90 * Math.random());
       }
     });
 
@@ -62,17 +61,19 @@ $(document).ready(function() {
       subClassesNodes = _.sortBy(subClassesNodes,function(item){
         return item.side;
       });
-      //get two closest together array[0] & array[1] ... array[2] & array[3]
-      //change left and top so they are coupled together
-      for(var j = 0; j < subClassesNodes.length; j=j+2){
-        subClassesNodes[j].couple(subClassesNodes[j + 1].top, subClassesNodes[j + 1].left)
-      }
-
-      console.log(subClassesNodes);
-
-
-      //console.log(subClassesNodes);
+      if (subClassesNodes.length > 1) {
+        for(var j = 0; j < subClassesNodes.length; j=j+2){
+          var topTemp = subClassesNodes[j + 1].top;
+          var leftTemp = subClassesNodes[j + 1].left + 5;
+          subClassesNodes[j].couple(topTemp, leftTemp, 'lightSpeedIn');
+          subClassesNodes[j + 1].couple(subClassesNodes[j + 1].top, subClassesNodes[j + 1].left, 'lightSpeedOut');
+        }
+      }      
   });
+
+    $('').hover(function(){
+      $(this).toggleClass('hover');
+    })
 
 });
 

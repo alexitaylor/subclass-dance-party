@@ -20,7 +20,7 @@ FightingDancer.prototype.lineup = function(left, top) {
 	this.$node.css(center);
 }
 
-FightingDancer.prototype.reset = function(left, top) {
+FightingDancer.prototype.reset = function(left, top, animation) {
 	this.left = left;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -36,15 +36,19 @@ FightingDancer.prototype.pytha = function(top, left) {
   	this.side = result;
 }
 
-FightingDancer.prototype.couple = function(top, left){
-	console.log(left);
-	console.log(this.left);
+FightingDancer.prototype.couple = function(top, left, animation){
 	this.left = left + 5;
-	this.top = top;
-	this.$node.removeAttr('style');
+	this.top = top; 
+	//$(this.$node[0].childNodes[0]).removeClass();
+	var classes = this.$node[0].childNodes[0].className;
+	var everythingButLastWord = classes.substring(0, classes.lastIndexOf(" "));
+	everythingButLastWord = everythingButLastWord + ' ' + animation
+	console.log(everythingButLastWord)
+
 	var couple = {
 		top: top + '%',
-		left: left + 5 +  '%'
+		left: left +  '%'
 	};
+	$(this.$node[0].childNodes[0]).addClass(everythingButLastWord);
 	this.$node.css(couple);
 }

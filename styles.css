@@ -107,8 +107,10 @@ a:hover {
 */
     position: absolute;
     animation: pulseRP 3s ease infinite alternate;
+} 
+.hover {
+    border: 5px solid white;
 }
-
 @keyframes pulseRP {
     0% {
         color: #18ffff;
