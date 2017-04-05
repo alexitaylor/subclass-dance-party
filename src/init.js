@@ -3,7 +3,7 @@
 $(document).ready(function() {
   window.dancers = [];
   var classIcons = {BlinkyDancer: 'fa-snapchat-ghost', PopDancer: 'fa-github-alt', FightingDancer: 'fa-linux' };
-  var classAnimations = {BlinkyDancer: 'jello', PopDancer: 'wobble', FightingDancer: 'rubberBand'};  
+  var classAnimations = { BlinkyDancer: 'jello', PopDancer: 'wobble', FightingDancer: 'rubberBand' };  
   var subClassesNodes = [];
 
   $('.addDancerButton').on('click', function(event) {
@@ -44,23 +44,26 @@ $(document).ready(function() {
       var fractionPercentage = 100 / length;
       for (var i = 0; i < subClassesNodes.length; i++) {
         var uniquePercentage = fractionPercentage * i;
-        subClassesNodes[i].lineup(uniquePercentage, '50%');
+        subClassesNodes[i].lineup(uniquePercentage, '50%', subClassesNodes[i].animation);
       }
   });
 
     $('.reset').on('click', function() {
       for (var i = 0; i < subClassesNodes.length; i++) {
-        subClassesNodes[i].reset(90 * Math.random(), 90 * Math.random());
+        subClassesNodes[i].reset(90 * Math.random(), 90 * Math.random(), subClassesNodes[i].animation);
       }
     });
 
     $('.couple').on('click', function() {
+      
       for (var i = 0; i < subClassesNodes.length; i++) {
         subClassesNodes[i].pytha(subClassesNodes[i].top, subClassesNodes[i].left);
       }
-      subClassesNodes = _.sortBy(subClassesNodes,function(item){
+
+      subClassesNodes = _.sortBy(subClassesNodes, function(item){
         return item.side;
       });
+
       if (subClassesNodes.length > 1) {
         for(var j = 0; j < subClassesNodes.length; j=j+2){
           var topTemp = subClassesNodes[j + 1].top;

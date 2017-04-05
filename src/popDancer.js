@@ -10,7 +10,7 @@ PopDancer.prototype.step = function(){
   //this.$node.toggle();
 }
 
-PopDancer.prototype.lineup = function(left,top) {
+PopDancer.prototype.lineup = function(left, top, animation) {
 	this.left = left;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -18,10 +18,11 @@ PopDancer.prototype.lineup = function(left,top) {
 		top: top,
 		left: left + '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(center);
 }
 
-PopDancer.prototype.reset = function(left, top) {
+PopDancer.prototype.reset = function(left, top, animation) {
 	this.left = left;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -29,6 +30,7 @@ PopDancer.prototype.reset = function(left, top) {
 		top: top + '%',
 		left: left + '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(center);
 }
 
@@ -37,7 +39,7 @@ PopDancer.prototype.pytha = function(top, left) {
   	this.side = result;
 }
 
-PopDancer.prototype.couple = function(top, left){
+PopDancer.prototype.couple = function(top, left, animation){
 	this.left = left + 5;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -45,5 +47,6 @@ PopDancer.prototype.couple = function(top, left){
 		top: top + '%',
 		left: left +  '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(couple);
 }

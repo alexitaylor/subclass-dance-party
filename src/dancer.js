@@ -7,6 +7,7 @@ var Dancer = function(top, left, timeBetweenSteps, className, icon, animation) {
   this.top = top;
   this.left = left;
   this.side = null;
+  this.animation = animation;
 
 };
 
@@ -23,3 +24,10 @@ Dancer.prototype.setPosition = function(top, left) {
     this.$node.css(styleSettings);
 };
 
+Dancer.prototype.addAnimation = function(node, animation) {
+  var classes = node[0].childNodes[0].className;
+  var everythingButLastWord = classes.substring(0, classes.lastIndexOf(" "));
+  everythingButLastWord = everythingButLastWord + ' ' + animation;
+  $(node[0].childNodes[0]).removeClass();
+  $(node[0].childNodes[0]).addClass(everythingButLastWord);
+}

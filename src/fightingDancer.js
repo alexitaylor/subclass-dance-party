@@ -9,7 +9,7 @@ FightingDancer.prototype.step = function(){
   Dancer.prototype.step.call(this);
   //this.$node.toggle();
 }
-FightingDancer.prototype.lineup = function(left, top) {
+FightingDancer.prototype.lineup = function(left, top, animation) {
 	this.left = left;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -17,6 +17,7 @@ FightingDancer.prototype.lineup = function(left, top) {
 		top: top,
 		left: left + '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(center);
 }
 
@@ -28,6 +29,7 @@ FightingDancer.prototype.reset = function(left, top, animation) {
 		top: top + '%',
 		left: left + '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(center);
 }
 
@@ -39,16 +41,10 @@ FightingDancer.prototype.pytha = function(top, left) {
 FightingDancer.prototype.couple = function(top, left, animation){
 	this.left = left + 5;
 	this.top = top; 
-	//$(this.$node[0].childNodes[0]).removeClass();
-	var classes = this.$node[0].childNodes[0].className;
-	var everythingButLastWord = classes.substring(0, classes.lastIndexOf(" "));
-	everythingButLastWord = everythingButLastWord + ' ' + animation
-	console.log(everythingButLastWord)
-
 	var couple = {
 		top: top + '%',
 		left: left +  '%'
 	};
-	$(this.$node[0].childNodes[0]).addClass(everythingButLastWord);
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(couple);
 }

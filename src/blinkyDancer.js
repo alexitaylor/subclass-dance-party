@@ -10,7 +10,7 @@ BlinkyDancer.prototype.step = function(){
   //this.$node.toggle();
 }
 
-BlinkyDancer.prototype.lineup = function(left,top) {
+BlinkyDancer.prototype.lineup = function(left,top, animation) {
 	this.left = left;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -18,10 +18,11 @@ BlinkyDancer.prototype.lineup = function(left,top) {
 		top: top,
 		left: left + '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(center);
 }
 
-BlinkyDancer.prototype.reset = function(left, top) {
+BlinkyDancer.prototype.reset = function(left, top, animation) {
 	this.left = left;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -29,6 +30,7 @@ BlinkyDancer.prototype.reset = function(left, top) {
 		top: top + '%',
 		left: left + '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(center);
 }
 
@@ -37,7 +39,7 @@ BlinkyDancer.prototype.pytha = function(top, left) {
   	this.side = result;
 }
 
-BlinkyDancer.prototype.couple = function(top, left){
+BlinkyDancer.prototype.couple = function(top, left, animation){
 	this.left = left + 5;
 	this.top = top;
 	this.$node.removeAttr('style');
@@ -45,6 +47,7 @@ BlinkyDancer.prototype.couple = function(top, left){
 		top: top + '%',
 		left: left +  '%'
 	};
+	Dancer.prototype.addAnimation(this.$node, animation);
 	this.$node.css(couple);
 }
 
